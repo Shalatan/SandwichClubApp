@@ -23,6 +23,9 @@ public class DetailActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        Log.e("DETAIL ACITIVITY","SEUCCESSFULLY RAN");
+
         ImageView ingredientsIv = findViewById(R.id.image_iv);
         Intent intent = getIntent();
         if (intent == null) {
@@ -69,6 +72,8 @@ public class DetailActivity extends AppCompatActivity {
         if(sandwich.getAlsoKnownAs() != null)
         {
             String alsoKnownAs = sandwich.getAlsoKnownAs().toString();
+            alsoKnownAs=alsoKnownAs.replace("[","");
+            alsoKnownAs=alsoKnownAs.replace("]","");
             alsoKnownAsTextView.setText(alsoKnownAs);
         }
         else
@@ -77,6 +82,8 @@ public class DetailActivity extends AppCompatActivity {
         if(sandwich.getIngredients() != null)
         {
             String ingredients = sandwich.getIngredients().toString();
+            ingredients=ingredients.replace("[","");
+            ingredients=ingredients.replace("]","");
             ingredientsTextView.setText(ingredients);
         }
         else
